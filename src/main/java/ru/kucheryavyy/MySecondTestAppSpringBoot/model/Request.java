@@ -21,7 +21,8 @@ public class Request {
     @Size(min = 1, max = 32)
     String operationUid;
 
-    String systemName;
+    @NotNull
+    Systems systemName;
 
     @NotBlank
     String systemTime;
@@ -38,4 +39,14 @@ public class Request {
     int productCode;
 
     int smsCode;
+
+    @Override
+    public String toString() {
+        return """
+                 {uid='%s', operationUid='%s', systemName='%s', systemTime='%s', source='%s', \
+                 communicationId='%d' templateId='%d', productCode='%d', smsCode='%d'}
+                """.formatted(
+                uid, operationUid, systemName, systemTime, source, communicationId, templateId, productCode, smsCode
+        );
+    }
 }

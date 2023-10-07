@@ -9,7 +9,7 @@ public class Response {
     String uid;
     String operationUid;
     String systemTime;
-    String code;
-    String errorCode;
-    String errorMessage;
+    Codes code;
+    ErrorCodes errorCode;
+    ErrorMessages errorMessage;
 }
