@@ -1,9 +1,9 @@
-package ru.kucheryavyy.MySecondTestAppSpringBoot.service;
+package ru.kucheryavyy.MyThirdTestAppSpringBoot.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-import ru.kucheryavyy.MySecondTestAppSpringBoot.exception.UnsupportedCodeException;
-import ru.kucheryavyy.MySecondTestAppSpringBoot.exception.ValidationFailedException;
+import ru.kucheryavyy.MyThirdTestAppSpringBoot.exception.UnsupportedCodeException;
+import ru.kucheryavyy.MyThirdTestAppSpringBoot.exception.ValidationFailedException;
 
 @Service
 public interface ValidationService {

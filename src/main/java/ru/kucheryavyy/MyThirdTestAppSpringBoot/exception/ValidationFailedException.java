@@ -1,4 +1,4 @@
-package ru.kucheryavyy.MySecondTestAppSpringBoot.exception;
+package ru.kucheryavyy.MyThirdTestAppSpringBoot.exception;
 
 public class ValidationFailedException extends Exception{
 

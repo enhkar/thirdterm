@@ -1,4 +1,4 @@
-package ru.kucheryavyy.MySecondTestAppSpringBoot.controller;
+package ru.kucheryavyy.MyThirdTestAppSpringBoot.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +9,18 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.kucheryavyy.MySecondTestAppSpringBoot.exception.UnsupportedCodeException;
-import ru.kucheryavyy.MySecondTestAppSpringBoot.exception.ValidationFailedException;
-import ru.kucheryavyy.MySecondTestAppSpringBoot.model.*;
-import ru.kucheryavyy.MySecondTestAppSpringBoot.service.ModifyResponseService;
-import ru.kucheryavyy.MySecondTestAppSpringBoot.service.ValidationService;
-import ru.kucheryavyy.MySecondTestAppSpringBoot.util.DateTimeUtil;
+import ru.kucheryavyy.MyThirdTestAppSpringBoot.exception.UnsupportedCodeException;
+import ru.kucheryavyy.MyThirdTestAppSpringBoot.exception.ValidationFailedException;
+import ru.kucheryavyy.MyThirdTestAppSpringBoot.model.*;
+import ru.kucheryavyy.MyThirdTestAppSpringBoot.service.ModifyResponseService;
+import ru.kucheryavyy.MyThirdTestAppSpringBoot.service.ValidationService;
+import ru.kucheryavyy.MyThirdTestAppSpringBoot.util.DateTimeUtil;
 
 import javax.validation.Valid;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -36,6 +39,18 @@ public class MyController {
     public ResponseEntity<Response> feedback(@Valid @RequestBody Request request, BindingResult bindingResult) {
         log.info("request: {}", request);
 
+        try {
+            Date firstPointDate = DateTimeUtil.getCustomFormat().parse(request.getSystemTime());
+            Date secondPointDate = new Date();
+
+            long diff = Math.abs(secondPointDate.getTime() - firstPointDate.getTime());
+            log.info("microseconds delay between requests: {}", diff);
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+
         Response response = Response.builder()
                 .uid(request.getUid())
                 .operationUid(request.getOperationUid())
@@ -44,8 +59,6 @@ public class MyController {
                 .errorCode(ErrorCodes.EMPTY)
                 .errorMessage(ErrorMessages.EMPTY)
                 .build();
-
-        log.info("response {}", response);
 
         try {
             validationService.isValid(bindingResult);

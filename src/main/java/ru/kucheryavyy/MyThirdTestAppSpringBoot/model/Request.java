@@ -1,4 +1,4 @@
-package ru.kucheryavyy.MySecondTestAppSpringBoot.model;
+package ru.kucheryavyy.MyThirdTestAppSpringBoot.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +22,7 @@ public class Request {
     String operationUid;
 
     @NotNull
-    Systems systemName;
+    String systemName;
 
     @NotBlank
     String systemTime;
