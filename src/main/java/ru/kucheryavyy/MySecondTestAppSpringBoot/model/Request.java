@@ -22,7 +22,7 @@ public class Request {
     String operationUid;
 
     @NotNull
-    Systems systemName;
+    String systemName;
 
     @NotBlank
     String systemTime;
