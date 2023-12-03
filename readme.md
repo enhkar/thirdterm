@@ -1,1 +1,1 @@
-# SecondTestAppSpringBoot - Лабораторная №2, третий семестр
+# SecondTestAppSpringBoot - Лабораторная №5, третий семестр
