@@ -13,32 +13,81 @@ import javax.validation.constraints.*;
 @AllArgsConstructor
 public class Request {
 
+
+    /**
+     * Уникальный идентификатор сообщения
+     */
     @NotBlank
     @Size(min = 1, max = 32)
-    String uid;
+    private String uid;
 
+    /**
+     * Уникальный идентификатор операции
+     */
     @NotBlank
     @Size(min = 1, max = 32)
-    String operationUid;
+    private String operationUid;
 
+    /**
+     * Имя системы отправителя
+     */
     @NotNull
-    String systemName;
+    private String systemName;
 
+    /**
+     * Время создания сообщения
+     */
     @NotBlank
-    String systemTime;
+    private String systemTime;
 
-    String source;
+    /**
+     * Наименование ресурса
+     */
+    private String source;
 
+    /**
+     * Должность
+     */
+    private Positions position;
+
+    /**
+     * Месячная сумма зарплаты
+     */
+    private double salary;
+
+    /**
+     * Дополнительно выплачиваемый бонус
+     */
+    private double bonus;
+
+    /**
+     * Количество отработанных дней
+     */
+    private int workDays;
+
+
+    /**
+     * Уникальный идентификатор коммуникации
+     */
     @NotNull
     @Min(1)
     @Max(100000)
-    Integer communicationId;
+    private Integer communicationId;
 
-    int templateId;
+    /**
+     * Уникальный идентификатор шаблона
+     */
+    private int templateId;
 
-    int productCode;
+    /**
+     * Код продукта
+     */
+    private int productCode;
 
-    int smsCode;
+    /**
+     * Смс код
+     */
+    private int smsCode;
 
     @Override
     public String toString() {
