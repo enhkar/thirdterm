@@ -1,1 +1,1 @@
-# Spring simple application
+# Лабораторная работа №7
