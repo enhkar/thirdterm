@@ -1,4 +1,7 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head>
     <meta charset="UTF-8">
     <title>Student Management System</title>
@@ -23,34 +26,14 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>
                 </li>
-            </ul>
         </div>
     </div>
 </nav>
-
+<br/><br/>
 <div class="container">
-
-    <h3>Add New Student</h3>
-    <hr/>
-
-    <form th:action="@{/saveStudent}" th:object="${student}" method="POST">
-
-        <input type="text" th:field="*{name}" class="form-control col-4 mb-4" placeholder="Enter Name"/>
-
-        <input type="text" th:field="*{surname}" class="form-control col-4 mb-4" placeholder="Enter Surname"/>
-
-        <input type="text" th:field="*{faculty}" class="form-control col-4 mb-4" placeholder="Enter Faculty"/>
-
-        <input type="text" th:field="*{age}" class="form-control col-4 mb-4" placeholder="Enter Age"/>
-
-        <button type="submit" class="btn btn-primary col-2">Save</button>
-
-        <input type="hidden" th:field="*{id}"/>
-
-    </form>
-    <hr/>
-    <a th:href="@{/list}">Back to list</a>
+    <div class="row">
+        <h1 class="text-center"> Student Management Systemw </h1>
+    </div>
 </div>
-
 </body>
 </html>

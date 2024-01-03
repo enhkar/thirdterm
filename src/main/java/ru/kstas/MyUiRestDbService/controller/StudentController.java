@@ -24,6 +24,7 @@ public class StudentController {
 
     @GetMapping({"/list", "/"})
     public ModelAndView getAllStudents() {
+        log.info("/list -> connection");
         ModelAndView mav = new ModelAndView("list-students");
         mav.addObject("students", studentRepository.findAll());
         return mav;
@@ -44,7 +45,7 @@ public class StudentController {
     }
 
     @GetMapping("/showUpdateForm")
-    public ModelAndView showUpdateForm(@RequestParam Integer studentId) {
+    public ModelAndView showUpdateForm(@RequestParam Long studentId) {
         ModelAndView mav = new ModelAndView("add-student-form");
         Optional<Student> optionalStudent =  studentRepository.findById(studentId);
         Student student = new Student();
@@ -56,7 +57,7 @@ public class StudentController {
     }
 
     @GetMapping("/deleteStudent")
-    public RedirectView deleteStudent(@RequestParam Integer studentId) {
+    public RedirectView deleteStudent(@RequestParam Long studentId) {
         studentRepository.deleteById(studentId);
         return new RedirectView("list");
     }
